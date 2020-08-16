@@ -1,0 +1,29 @@
+
+digraph UmlClassDiagram {
+rankdir=BT
+color=black
+arrowhead=open
+node [shape=record, style=filled, fillcolor=gray95]
+subgraph  graph_0 {
+label="contracts"
+0 [label="{\<\<Abstract\>\>\nContext| | Internal:\l\ \ \ \ _msgSender(): (payable: address)\l\ \ \ \ _msgData(): bytes\l}"]
+1 [label="{\<\<Interface\>\>\nIERC20| | External:\l\ \ \ \  totalSupply(): uint256\l\ \ \ \  balanceOf(account: address): uint256\l\ \ \ \  transfer(recipient: address, amount: uint256): bool\l\ \ \ \  allowance(owner: address, spender: address): uint256\l\ \ \ \  approve(spender: address, amount: uint256): bool\l\ \ \ \  transferFrom(sender: address, recipient: address, amount: uint256): bool\lPublic:\l\ \ \ \ \<\<event\>\> Transfer(from: address, to: address, value: uint256)\l\ \ \ \ \<\<event\>\> Approval(owner: address, spender: address, value: uint256)\l}"]
+2 [label="{\<\<Library\>\>\nSafeMath| | Internal:\l\ \ \ \ add(a: uint256, b: uint256): uint256\l\ \ \ \ sub(a: uint256, b: uint256): uint256\l\ \ \ \ sub(a: uint256, b: uint256, errorMessage: string): uint256\l\ \ \ \ mul(a: uint256, b: uint256): uint256\l\ \ \ \ div(a: uint256, b: uint256): uint256\l\ \ \ \ div(a: uint256, b: uint256, errorMessage: string): uint256\l\ \ \ \ mod(a: uint256, b: uint256): uint256\l\ \ \ \ mod(a: uint256, b: uint256, errorMessage: string): uint256\l}"]
+3 [label="{\<\<Library\>\>\nAddress| | Private:\l\ \ \ \ _functionCallWithValue(target: address, data: bytes, weiValue: uint256, errorMessage: string): bytes\lInternal:\l\ \ \ \ isContract(account: address): bool\l\ \ \ \ sendValue(recipient: address, amount: uint256)\l\ \ \ \ functionCall(target: address, data: bytes): bytes\l\ \ \ \ functionCall(target: address, data: bytes, errorMessage: string): bytes\l\ \ \ \ functionCallWithValue(target: address, data: bytes, value: uint256): bytes\l\ \ \ \ functionCallWithValue(target: address, data: bytes, value: uint256, errorMessage: string): bytes\l}"]
+4 [label="{ERC20| Private:\l\ \ \ _allowances: mapping\(address=\>mapping\(address=\>uint256\)\)\l\ \ \ _name: string\l\ \ \ _symbol: string\l\ \ \ _decimals: uint8\lInternal:\l\ \ \ _balances: mapping\(address=\>uint256\)\l\ \ \ _totalSupply: uint256\l| Internal:\l\ \ \ \ _transfer(sender: address, recipient: address, amount: uint256)\l\ \ \ \ _mint(account: address, amount: uint256)\l\ \ \ \ _burn(account: address, amount: uint256)\l\ \ \ \ _approve(owner: address, spender: address, amount: uint256)\l\ \ \ \ _setupDecimals(decimals_: uint8)\l\ \ \ \ _beforeTokenTransfer(from: address, to: address, amount: uint256)\lPublic:\l\ \ \ \ transfer(recipient: address, amount: uint256): bool\l\ \ \ \ constructor(name: string, symbol: string)\l\ \ \ \ symbol(): string\l\ \ \ \ decimals(): uint8\l\ \ \ \ totalSupply(): uint256\l\ \ \ \ balanceOf(account: address): uint256\l\ \ \ \ name(): string\l\ \ \ \ allowance(owner: address, spender: address): uint256\l\ \ \ \ approve(spender: address, amount: uint256): bool\l\ \ \ \ transferFrom(sender: address, recipient: address, amount: uint256): bool\l\ \ \ \ increaseAllowance(spender: address, addedValue: uint256): bool\l\ \ \ \ decreaseAllowance(spender: address, subtractedValue: uint256): bool\l}"]
+5 [label="{Ownable| Private:\l\ \ \ _owner: address\l| Public:\l\ \ \ \ \<\<event\>\> OwnershipTransferred(previousOwner: address, newOwner: address)\l\ \ \ \ \<\<modifier\>\> onlyOwner()\l\ \ \ \ constructor()\l\ \ \ \ owner(): address\l\ \ \ \ renounceOwnership()\l\ \ \ \ transferOwnership(newOwner: address)\l}"]
+6 [label="{\<\<Interface\>\>\nIUniswapV2Pair| | External:\l\ \ \ \  sync()\l}"]
+7 [label="{\<\<Interface\>\>\nIUniswapV2Factory| | External:\l\ \ \ \  createPair(tokenA: address, tokenB: address): (pair: address)\l}"]
+8 [label="{WingsToken| Internal:\l\ \ \ totalTopHolders: uint256\l\ \ \ WETH: ERC20\lPublic:\l\ \ \ lastBakeTime: uint256\l\ \ \ totalBaked: uint256\l\ \ \ BAKE_RATE: uint256\l\ \ \ BAKE_REWARD: uint256\l\ \ \ POOL_REWARD: uint256\l\ \ \ lastRewardTime: uint256\l\ \ \ rewardPool: uint256\l\ \ \ claimedRewards: mapping\(address=\>uint256\)\l\ \ \ unclaimedRewards: mapping\(address=\>uint256\)\l\ \ \ topHolder: mapping\(uint256=\>address\)\l\ \ \ MAX_TOP_HOLDERS: uint256\l\ \ \ pauser: address\l\ \ \ paused: bool\l\ \ \ uniswapFactory: IUniswapV2Factory\l\ \ \ uniswapPool: address\l| Internal:\l\ \ \ \ _beforeTokenTransfer(from: address, to: address, amount: uint256)\lExternal:\l\ \ \ \ setUniswapPool()\l\ \ \ \ unpause()\l\ \ \ \ bakePool()\l\ \ \ \ updateTopHolders(holders: address[])\l\ \ \ \ claimRewards()\lPublic:\l\ \ \ \ \<\<event\>\> PoolBaked(tender: address, bakeAmount: uint256, newTotalSupply: uint256, newUniswapPoolSupply: uint256, userReward: uint256, newPoolReward: uint256)\l\ \ \ \ \<\<event\>\> PayoutSnapshotTaken(totalTopHolders: uint256, totalPayout: uint256, snapshot: uint256)\l\ \ \ \ \<\<event\>\> PayoutClaimed(topHolderAddress: address, claimedReward: uint256)\l\ \ \ \ \<\<modifier\>\> onlyPauser()\l\ \ \ \ \<\<modifier\>\> whenNotPaused()\l\ \ \ \ \<\<modifier\>\> when3DaysBetweenLastSnapshot()\l\ \ \ \ constructor(initialSupply: uint256, new_owner: address)\l\ \ \ \ setPauser(newPauser: address)\l\ \ \ \ getInfoFor(addr: address): (uint256, uint256, uint256, uint256, uint256, uint256, uint256, uint256, uint256)\l\ \ \ \ getBakeAmount(): uint256\l}"]
+}
+4 -> 0 [arrowhead=empty, arrowsize=3, weight=3, ]
+4 -> 1 [style=dashed, arrowhead=empty, arrowsize=3, weight=3, ]
+4 -> 2 [style=dashed, ]
+4 -> 3 [style=dashed, ]
+5 -> 0 [arrowhead=empty, arrowsize=3, weight=3, ]
+8 -> 4 [arrowhead=empty, arrowsize=3, weight=4, ]
+8 -> 5 [arrowhead=empty, arrowsize=3, weight=4, ]
+8 -> 2 [style=dashed, ]
+8 -> 7 []
+8 -> 6 [style=dashed, ]
+}

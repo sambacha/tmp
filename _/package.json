@@ -1,0 +1,13 @@
+{
+  "name": "wings-token",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+	"compile": "npx saddle compile",
+	"test": "npx saddle compile && npx saddle test",
+	"deploy": "npx saddle deploy -n development"
+  "dependencies": {
+    "eth-saddle": "^0.1.19"
+  }
+}
