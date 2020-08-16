@@ -4,10 +4,15 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-	"compile": "npx saddle compile",
-	"test": "npx saddle compile && npx saddle test",
-	"deploy": "npx saddle deploy -n development"
+    "compile": "npx saddle compile",
+    "test": "npx saddle compile && npx saddle test",
+    "deploy": "npx saddle deploy -n development"
+  },
   "dependencies": {
     "eth-saddle": "^0.1.19"
+  },
+  "devDependencies": {
+    "@nomiclabs/buidler": "^1.4.3",
+    "ethereum-waffle": "^3.0.2"
   }
 }
